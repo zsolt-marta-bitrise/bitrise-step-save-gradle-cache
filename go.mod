@@ -3,7 +3,7 @@ module github.com/bitrise-steplib/steps-save-gradle-cache
 go 1.17
 
 require (
-	github.com/bitrise-io/go-steputils/v2 v2.0.0-alpha.17
+	github.com/bitrise-io/go-steputils/v2 v2.0.0-alpha.17.0.20230413070611-3f43534a0b7d
 	github.com/bitrise-io/go-utils/v2 v2.0.0-alpha.15
 )
 
