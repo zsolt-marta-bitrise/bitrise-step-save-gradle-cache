@@ -102,7 +102,7 @@ func (c apiClient) uploadArchive(archivePath, uploadMethod, uploadURL string, he
 		return err
 	}
 
-	req, err := http.NewRequest(uploadMethod, uploadURL, file)
+	req, err := retryablehttp.NewRequest(uploadMethod, uploadURL, file)
 	if err != nil {
 		return err
 	}
@@ -126,14 +126,13 @@ func (c apiClient) uploadArchive(archivePath, uploadMethod, uploadURL string, he
 		log.Printf("\t\t%s: %s", k, v)
 	}
 
-	dumpRequest, err := httputil.DumpRequest(req, false)
+	dumpRequest, err := httputil.DumpRequest(req.Request, false)
 	if err != nil {
 		return err
 	}
 	log.Printf("Raw HTTP request: %s", string(dumpRequest))
 
-	client := &http.Client{}
-	resp, err := client.Do(req)
+	resp, err := c.httpClient.Do(req)
 	if err != nil {
 		return err
 	}
