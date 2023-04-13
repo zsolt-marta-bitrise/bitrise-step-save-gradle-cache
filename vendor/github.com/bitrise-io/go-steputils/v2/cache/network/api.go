@@ -10,6 +10,7 @@ import (
 	"net/http/httputil"
 	"net/url"
 	"os"
+	"strconv"
 	"strings"
 
 	"github.com/hashicorp/go-retryablehttp"
@@ -115,6 +116,9 @@ func (c apiClient) uploadArchive(archivePath, uploadMethod, uploadURL string, he
 	} else {
 		log.Printf("Uploading %s (%d bytes)", archivePath, fileInfo.Size())
 	}
+
+	req.Header.Add("Content-Length", strconv.FormatInt(fileInfo.Size(), 10))
+	req.ContentLength = fileInfo.Size()
 
 	log.Printf("HTTP request content length: %d", req.ContentLength)
 	log.Println("HTTP request headers:")
