@@ -5,7 +5,7 @@ go 1.17
 require github.com/bitrise-io/go-utils/v2 v2.0.0-alpha.15
 
 require (
-	github.com/bitrise-io/go-steputils/v2 v2.0.0-alpha.17.0.20230413092958-aa4369209444 // indirect
+	github.com/bitrise-io/go-steputils/v2 v2.0.0-alpha.17.0.20230413094251-1bebd5c34fbb // indirect
 	github.com/bitrise-io/go-utils v1.0.1 // indirect
 	github.com/bmatcuk/doublestar/v4 v4.2.0 // indirect
 	github.com/docker/go-units v0.4.0 // indirect
